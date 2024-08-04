@@ -9,36 +9,58 @@
     <style>
         body {
             font-family: 'Roboto', sans-serif;
-            background: #121212;
+            background: #1c1c1c;
             color: #ddd;
             overflow-x: hidden;
         }
 
         header {
-            background: #1f1f1f;
+            background: #111;
             color: #fff;
-            padding: 80px 0;
+            padding: 100px 0;
             text-align: center;
             border-bottom: 1px solid #333;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8));
+            z-index: 1;
+        }
+
+        header .container {
+            position: relative;
+            z-index: 2;
         }
 
         header h1 {
             font-size: 3.5em;
             font-family: 'Lobster', cursive;
+            color: #fbc531;
+            animation: slideInDown 1s ease-out forwards;
         }
 
         header p {
             font-size: 1.3em;
             font-weight: 300;
+            color: #f5f6fa;
+            animation: fadeInUp 1.5s ease-out forwards;
         }
 
         .navbar-brand, .nav-link {
             font-weight: 500;
-            color: #fff !important;
+            color: #fbc531 !important;
         }
 
         .navbar-brand:hover, .nav-link:hover {
-            color: #f39c12 !important;
+            color: #f5f6fa !important;
         }
 
         .navbar-toggler-icon {
@@ -50,9 +72,9 @@
         }
 
         h2 {
-            color: #f39c12;
+            color: #fbc531;
             font-weight: 500;
-            border-bottom: 2px solid #f39c12;
+            border-bottom: 2px solid #fbc531;
             padding-bottom: 10px;
             margin-bottom: 40px;
             text-align: center;
@@ -78,7 +100,7 @@
         }
 
         #skills li {
-            background: #f39c12;
+            background: #fbc531;
             color: white;
             margin: 10px;
             padding: 15px 30px;
@@ -88,7 +110,7 @@
         }
 
         #skills li:hover {
-            background: #e67e22;
+            background: #e1b12c;
             transform: translateY(-5px);
         }
 
@@ -110,7 +132,7 @@
 
         .project h3 {
             text-align: center;
-            color: #f39c12;
+            color: #fbc531;
         }
 
         .project p, .project ul {
@@ -129,24 +151,24 @@
 
         .project ul li:before {
             content: '•';
-            color: #f39c12;
+            color: #fbc531;
             position: absolute;
             left: 0;
         }
 
         .btn-custom {
-            background: #f39c12;
+            background: #fbc531;
             color: #fff;
             transition: background 0.3s, transform 0.3s;
         }
 
         .btn-custom:hover {
-            background: #e67e22;
+            background: #e1b12c;
             transform: translateY(-3px);
         }
 
         footer {
-            background: #1f1f1f;
+            background: #111;
             color: #ddd;
             text-align: center;
             padding: 20px 0;
@@ -154,13 +176,36 @@
         }
 
         footer a {
-            color: #f39c12 !important;
+            color: #fbc531 !important;
             text-decoration: none;
             transition: color 0.3s;
         }
 
         footer a:hover {
             color: #fff !important;
+        }
+
+        /* Keyframe animations */
+        @keyframes slideInDown {
+            0% {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
 
         /* Fade-in animation */
@@ -176,7 +221,7 @@
         /* Responsive Layout */
         @media (max-width: 768px) {
             .navbar-collapse {
-                background: #1f1f1f;
+                background: #111;
             }
 
             #skills ul {
@@ -199,7 +244,7 @@
         </div>
     </header>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
         <div class="container">
             <a class="navbar-brand" href="#">Portfolio</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
